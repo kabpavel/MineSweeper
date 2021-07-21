@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="content" onload="initGame()">
+  <table>
+    <tr>
+        <td><button class="new-game" onClick="startNewGame()">New Game</button></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p>Chose Your Level:</p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div><label>Beginner</label>
+                <input type="radio" name="boardSize" checked = "checked" class="radio-board-size-16" onclick="chooseLevel(4)">&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Medium</label>
+                <input type="radio" name="boardSize" class="radio-board-size-64" onclick="chooseLevel(8)">&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Expert</label>
+                <input type="radio" name="boardSize" class="radio-board-size-144" onclick="chooseLevel(12)">&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>Bombs Left:<br>
+                <p class="bombs-left"></p>
+            </div>
+        </td>
+        <td>
+            <div>timer:<br>
+                <p class="timer"></p>
+            </div>
+        </td>
+        <td>
+          <div>Lives:<br>
+              <p class="lives"></p>
+          </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <div>
+                <table border="1" cellpadding="10">
+                    <tbody class="board"></tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+    <script src="js/main.js"></script>
+    <script src="js/util.js"></script>
+</body>
+
+</html>
