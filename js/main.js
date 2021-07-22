@@ -61,8 +61,9 @@ var statusToClassMap = {
     'isShownFalse': 'hd_closed',
     'isMine': 'hd_mine',
     'isMarked': 'hd_flag',
-    'isOff': 'face_lost',
-    'isOn': 'face_unpressed',
+    'face_lost': 'face_lost',
+    'face_unpressed': 'face_unpressed',
+    'face_win': 'face_win'
 }
 
 var gLevel;
@@ -214,11 +215,13 @@ function countMinesNeighbors(cellI, cellJ, board) {
 
 //Called when a cell (td) is clicked
 function cellClicked(elCell, i, j) {
+    if(!gGame.isOn)  return;
+
     if (!gTimerInterval) startTimer();
 
     var currCell = gBoard[i][j];
-    if (currCell.isMarked) return
-    if (currCell.isShown) return
+    if (currCell.isMarked) return;
+    if (currCell.isShown) return;
     currCell.isShown = true;
     gGame.shownCount++;
 
@@ -239,26 +242,28 @@ function cellClicked(elCell, i, j) {
         gGame.minesExploded++;
         gGame.markedCount++;
 
-        if(gGame.lives > 0) { 
-            gGame.lives--; 
+        if (gGame.lives > 0) {
+            gGame.lives--;
             renderLives();
             renderBombsLeft();
-        } else { 
-            gGame.isOn = false; 
+        } else {
+            gGame.isOn = false;
         }
 
-        if(!gGame.isOn) {
+        if (!gGame.isOn) {
+            debugger;
+            faceChange('face_lose');
             clearTimerInterval();
             renderBoard(gBoard);
         } else {
-            renderCellReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap['isExploded']);
+            renderReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap['isExploded']);
         }
 
         renderLives();
     }
 
     if (!currCell.isMine) expandShown(gBoard, elCell, i, j);
-        
+
     checkGameOver();
 }
 
@@ -266,21 +271,23 @@ function cellClicked(elCell, i, j) {
 //Search the web (and implement) how to hide the context menu on right click
 function cellMarked(event, elCell, i, j) {
     event.preventDefault();
-    
+
     if (!gTimerInterval) startTimer();
+    if (!gTimerInterval) startTimer();
+  
 
     var currCell = gBoard[i][j];
     if (currCell.isShown) return;
     if (!currCell.isMarked) {
+        if (gLevel.MINES - gGame.markedCount <= 0) return;
         gGame.markedCount++;
         currCell.isMarked = true;
-        renderCellReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap['isMarked']);
-
+        renderReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap['isMarked']);
         renderBombsLeft();
     } else {
         gGame.markedCount--;
         currCell.isMarked = false;
-        renderCellReplaceClass(elCell, statusToClassMap['isMarked'], statusToClassMap['isShownFalse']);
+        renderReplaceClass(elCell, statusToClassMap['isMarked'], statusToClassMap['isShownFalse']);
         renderBombsLeft();
     }
 }
@@ -288,28 +295,29 @@ function cellMarked(event, elCell, i, j) {
 
 //Game ends when all mines are marked, and all the other cells are shown
 function checkGameOver() {
+    debugger;
 
-    if(checkIsGameWinned()) {
-
+    if (checkIsGameWinned()) {
+        clearTimerInterval();
+        faceChange('face_win');
     }
 }
 
 function checkIsGameWinned() {
+    debugger;
+    if (!gGame.isOn) return false;
 
-    if(!gGame.isOn) return false; 
-
-    for (var i = 0; i < board.length; i++) {
-        for (var j = 0; j < board[0].length; j++) {
-            var currCell = board[i][j];
-            if (currCell.isMarked && !currCell.isMine)  return false;
-            if (!currCell.isShown &&  !currCell.isMine) return false;
-            if (currCell.isExploded && currCell.isMine && gGame.isOn) return false;
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard[0].length; j++) {
+            var currCell = gBoard[i][j];
+            if (currCell.isMarked && !currCell.isMine) return false;
+            if (!currCell.isShown && !currCell.isMine) return false;
+            if (!currCell.isMarked && currCell.isMine && !currCell.isExploded) return false;
         }
     }
 
     return true;
 }
-
 
 //When user clicks a cell with no mines around, 
 //we need to open not only that cell, but also its neighbors. 
@@ -318,7 +326,7 @@ function checkIsGameWinned() {
 //the real algorithm (see description at the Bonuses section below)
 function expandShown(board, elCell, i, j) {
     var currCell = gBoard[i][j];
-    renderCellReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap[currCell.minesAroundCount + '']);
+    renderReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap[currCell.minesAroundCount + '']);
     if (currCell.minesAroundCount === 0) showNeighbors(i, j, board);
 }
 
@@ -335,7 +343,7 @@ function showNeighbors(cellI, cellJ, board) {
                 currCell.isShown = true;
                 gGame.shownCount = true;
                 var elCell = document.querySelector('.' + getClassName(i, j));
-                renderCellReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap[currCell.minesAroundCount + '']);
+                renderReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap[currCell.minesAroundCount + '']);
             }
         }
     }
@@ -356,9 +364,6 @@ function getEmptyCells(board) {
 
     return res;
 }
-
-
-
 
 function startTimer() {
     renderTimerToZero();
@@ -406,5 +411,19 @@ function clearTimerInterval() {
 
 function renderBombsLeft() {
     var elBombsLeft = document.querySelector('.bombs-left');
-    elBombsLeft.innerText = gLevel.MINES - gGame.markedCount;
+    elBombsLeft.innerText = (gLevel.MINES - gGame.markedCount <= 0) ? 0 : gLevel.MINES - gGame.markedCount;
+}
+
+function faceClicked() {
+    faceChange('face_unpressed');
+    initGame();
+}
+
+function faceChange(face_class) {
+    var elFace = document.querySelector('.face');
+
+    elFace.classList.remove('face_unpressed');
+    elFace.classList.remove('face_lose');
+    elFace.classList.remove('face_win');
+    elFace.classList.add(face_class);
 }

@@ -10,10 +10,16 @@
 </head>
 
 <body class="content" onload="initGame()">
-  <table>
+  <table class="minesweeper">
     <tr>
-        <td><button class="new-game" onClick="startNewGame()">New Game</button></td>
-        <td><p ></p></td>
+        <td colspan="2">
+           <h1>Mine Sweeper</h1>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="face face_unpressed" onclick="faceClicked()" style="width: 39px; height: 39px;"></div>
+        </td>
     </tr>
     <tr>
         <td colspan="2">
@@ -36,7 +42,7 @@
             <div>Bombs Left:<br><span class="bombs-left"></span></div>
         </td>
         <td>
-            <div>timer:<span class="timer"></span></div>
+            <div>timer:<br><span class="timer"></span></div>
         </td>
         <td>
           <div>Lives:<br><span class="lives"></span></div>
@@ -44,7 +50,7 @@
     </tr>
     <tr>
         <td colspan="3">
-            <div>
+            <div class="div-main">
                 <table border="1" cellpadding="10">
                     <tbody class="board"></tbody>
                 </table>
@@ -52,6 +58,9 @@
         </td>
     </tr>
 </table>
+<footer>
+    <p>Author: Pavel Kabakov<br>
+  </footer>  
     <script src="js/main.js"></script>
     <script src="js/util.js"></script>
 </body>

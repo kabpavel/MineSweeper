@@ -1,6 +1,56 @@
 
 body {
-    background-color:white;
+    background-color:rgb(255, 254, 191);
+    align-items: center;
+}
+
+.div-main {
+    width: 315px;
+    height: 315px;
+}
+
+.minesweeper {
+    background-color:rgb(251, 222, 149);
+    width: 315px;
+    height: 600px;
+}
+
+element.style {
+    width: 39px;
+    height: 39px;
+}
+.face_unpressed {
+    background-image: url("../images/face_unpressed.svg");
+}
+
+.face_lose {
+    background-image: url("../images/face_lose.svg");
+}
+
+.face_win {
+    background-image: url("../images/face_win.svg");
+}
+
+.face {
+    margin: 0 auto;
+    background-size: 100%;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.top-area-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.wrapper {
+    border-collapse: separate;
 }
 
 .content {
@@ -14,6 +64,14 @@ body {
     font-size: 10px;
     line-height: 23px;
 }
+
+.size24 {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    line-height: 23px;
+}
+
 .cell {
     float: left;
     background-size: 100%;

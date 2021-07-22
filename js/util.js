@@ -13,7 +13,7 @@ function createMat(ROWS, COLS) {
     return mat
 }
 
-function renderCellReplaceClass(element,remove,add) {
+function renderReplaceClass(element,remove,add) {
     element.classList.remove(remove);
     element.classList.add(add);
 }
