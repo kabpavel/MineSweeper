@@ -251,7 +251,7 @@ function cellClicked(elCell, i, j) {
         }
 
         if (!gGame.isOn) {
-            debugger;
+     
             faceChange('face_lose');
             clearTimerInterval();
             renderBoard(gBoard);
@@ -295,7 +295,6 @@ function cellMarked(event, elCell, i, j) {
 
 //Game ends when all mines are marked, and all the other cells are shown
 function checkGameOver() {
-    debugger;
 
     if (checkIsGameWinned()) {
         clearTimerInterval();
@@ -304,7 +303,6 @@ function checkGameOver() {
 }
 
 function checkIsGameWinned() {
-    debugger;
     if (!gGame.isOn) return false;
 
     for (var i = 0; i < gBoard.length; i++) {
