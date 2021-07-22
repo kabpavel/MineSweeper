@@ -86,6 +86,7 @@ function initGame() {
     clearTimerInterval();
     renderTimerToZero();
     renderLives();
+    renderBombsLeft();
 }
 
 function createGame() {
@@ -288,7 +289,9 @@ function cellMarked(event, elCell, i, j) {
 //Game ends when all mines are marked, and all the other cells are shown
 function checkGameOver() {
 
-    
+    if(checkIsGameWinned()) {
+
+    }
 }
 
 function checkIsGameWinned() {
