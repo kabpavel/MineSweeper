@@ -94,7 +94,8 @@ function createGame() {
         shownCount: 0,
         markedCount: 0,
         secsPassed: 0,
-        lives: sizeToLivesMap[gLevel.SIZE]
+        lives: sizeToLivesMap[gLevel.SIZE],
+        minesExploded: 0
     };
 }
 
@@ -233,14 +234,18 @@ function cellClicked(elCell, i, j) {
     }
 
     if (currCell.isMine) {
+        currCell.isExploded = true;
+        gGame.minesExploded++;
+        gGame.markedCount++;
+
         if(gGame.lives > 0) { 
             gGame.lives--; 
             renderLives();
+            renderBombsLeft();
         } else { 
             gGame.isOn = false; 
         }
-        
-        currCell.isExploded = true;
+
         if(!gGame.isOn) {
             clearTimerInterval();
             renderBoard(gBoard);
@@ -283,14 +288,23 @@ function cellMarked(event, elCell, i, j) {
 //Game ends when all mines are marked, and all the other cells are shown
 function checkGameOver() {
 
-    var shownCellsCount = getShownCells(gBoard).length;
-    var markedCellsCount = getMarkedCells(gBoard).length;
+    
+}
 
-    if(shownCellsCount === (gLevel.size**2 - markedCellsCount)) {
-        
+function checkIsGameWinned() {
+
+    if(!gGame.isOn) return false; 
+
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board[0].length; j++) {
+            var currCell = board[i][j];
+            if (currCell.isMarked && !currCell.isMine)  return false;
+            if (!currCell.isShown &&  !currCell.isMine) return false;
+            if (currCell.isExploded && currCell.isMine && gGame.isOn) return false;
+        }
     }
 
-    //clearTimerInterval();
+    return true;
 }
 
 
@@ -340,31 +354,6 @@ function getEmptyCells(board) {
     return res;
 }
 
-function getShownCells(board) {
-    var res = [];
-    for (var i = 0; i < board.length; i++) {
-        for (var j = 0; j < board[0].length; j++) {
-            var currCell = board[i][j];
-            if (currCell.isShown) {
-                res.push({ i: i, j: j });
-            }
-        }
-    }
-    return res;
-}
-
-function getMarkedCells(board) {
-    var res = [];
-    for (var i = 0; i < board.length; i++) {
-        for (var j = 0; j < board[0].length; j++) {
-            var currCell = board[i][j];
-            if (currCell.isMarked) {
-                res.push({ i: i, j: j });
-            }
-        }
-    }
-    return res;
-}
 
 
 
