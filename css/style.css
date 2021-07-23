@@ -4,15 +4,23 @@ body {
     align-items: center;
 }
 
+.content {
+    /* background-image: url("../images/face_unpressed.svg") !important; */
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
 .div-main {
     width: 315px;
     height: 315px;
+    align-items: center;
 }
 
 .minesweeper {
     background-color:rgb(251, 222, 149);
     width: 315px;
     height: 600px;
+    border-radius: 10px;
 }
 
 element.style {
@@ -58,9 +66,9 @@ div {
     margin: auto;
   }
 
-.size24 {
-    width: 24px;
-    height: 24px;
+.size36  {
+    width: 36px;
+    height: 36px;
     font-size: 10px;
     line-height: 23px;
 }

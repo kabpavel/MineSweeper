@@ -76,7 +76,7 @@ var gTimerInterval;
 
 // This is called when page loads 
 function initGame() {
-
+    console.clear();
     gIsFirstPress = true;
     if (!gLevel) gLevel = createLevel(4, 2);
 
@@ -117,6 +117,7 @@ function createCell(minesAroundCount, isShown, isMine, isMarked, isExploded = fa
         isExploded: isExploded
     }
 }
+
 
 // Builds the board 
 // Set mines at random locations Call 
@@ -165,14 +166,12 @@ function renderBoard(board) {
                 cellClass = (currCell.isMine) ? statusToClassMap['isMarked'] : statusToClassMap[currCell.minesAroundCount + ''];
             }
 
-            strHTML += `\t<td class="cell size24 cell-${i}-${j} ${cellClass}"
+            strHTML += `\t<td class="cell size36 cell-${i}-${j} ${cellClass}"
                         oncontextmenu="cellMarked(event,this,${i},${j})"
                         onclick="cellClicked(this,${i},${j})" >\n \t</td>\n`;
         }
         strHTML += '</tr>\n';
     }
-    // console.log('strHTML is:');
-    // console.log(strHTML);
     var elBoard = document.querySelector('.board');
 
     elBoard.innerHTML = strHTML;
@@ -215,14 +214,16 @@ function countMinesNeighbors(cellI, cellJ, board) {
 
 //Called when a cell (td) is clicked
 function cellClicked(elCell, i, j) {
-    if(!gGame.isOn)  return;
+    if (!gGame.isOn) return;
 
     if (!gTimerInterval) startTimer();
 
     var currCell = gBoard[i][j];
+
     if (currCell.isMarked) return;
     if (currCell.isShown) return;
     currCell.isShown = true;
+
     gGame.shownCount++;
 
     if (gIsFirstPress) {
@@ -230,11 +231,12 @@ function cellClicked(elCell, i, j) {
         if (gBoard[i][j].isMine) {
             var emptyCells = getEmptyCells(gBoard);
             var emptyCellIdx = drawObject(emptyCells);
-            gBoard[emptyCellIdx.i][emptyCellIdx.j] = createCell(0, false, true, false);
-            currCell = createCell(0, false, false, false);
+            var emptyCell = gBoard[emptyCellIdx.i][emptyCellIdx.j];
+            emptyCell.isMine = true;
+            currCell .isMine = false;
         }
+
         setMinesNegsCount(gBoard);
-        console.table(gBoard);
     }
 
     if (currCell.isMine) {
@@ -251,7 +253,6 @@ function cellClicked(elCell, i, j) {
         }
 
         if (!gGame.isOn) {
-     
             faceChange('face_lose');
             clearTimerInterval();
             renderBoard(gBoard);
@@ -274,22 +275,26 @@ function cellMarked(event, elCell, i, j) {
 
     if (!gTimerInterval) startTimer();
     if (!gTimerInterval) startTimer();
-  
 
     var currCell = gBoard[i][j];
     if (currCell.isShown) return;
     if (!currCell.isMarked) {
         if (gLevel.MINES - gGame.markedCount <= 0) return;
+
         gGame.markedCount++;
         currCell.isMarked = true;
+        console.log('currCell.isMarked',currCell.isMarked);
         renderReplaceClass(elCell, statusToClassMap['isShownFalse'], statusToClassMap['isMarked']);
         renderBombsLeft();
     } else {
         gGame.markedCount--;
         currCell.isMarked = false;
+        console.log('currCell.isMarked',currCell.isMarked);        
         renderReplaceClass(elCell, statusToClassMap['isMarked'], statusToClassMap['isShownFalse']);
         renderBombsLeft();
     }
+
+    checkGameOver();
 }
 
 
@@ -308,9 +313,14 @@ function checkIsGameWinned() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[0].length; j++) {
             var currCell = gBoard[i][j];
-            if (currCell.isMarked && !currCell.isMine) return false;
-            if (!currCell.isShown && !currCell.isMine) return false;
-            if (!currCell.isMarked && currCell.isMine && !currCell.isExploded) return false;
+
+            if(!currCell.isShown) {
+                console.log(`currCell.isMarked && !currCell.isMine ${currCell.isMarked && !currCell.isMine}`);
+                console.log(`!currCell.isMarked && currCell.isMine ${!currCell.isMarked && currCell.isMine}`);
+
+                if (currCell.isMarked && !currCell.isMine) return false;
+                if (!currCell.isMarked && currCell.isMine)  return false;
+            }
         }
     }
 

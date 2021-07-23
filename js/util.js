@@ -6,7 +6,6 @@ function createMat(ROWS, COLS) {
         var row = []
         for (var j = 0; j < COLS; j++) {
             row.push('')
-            console.log('row',row)
         }
         mat.push(row)
     }
@@ -38,6 +37,3 @@ function getClassName(cellI, cellJ) {
 	var cellClass = `cell-${cellI}-${cellJ}`;
 	return cellClass;
 }
-
-
-
