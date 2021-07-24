@@ -1,32 +1,55 @@
-
 body {
-    background-color:rgb(255, 254, 191);
-    align-items: center;
+    background-color: rgb(24, 27, 19);
+    /* align-items: center; */
+    margin-left: auto;
+    font-family: "Audiowide", sans-serif;
+}
+
+.td-title {
+    background-repeat: no-repeat;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .content {
-    /* background-image: url("../images/face_unpressed.svg") !important; */
+    background-image: url("../images/bcg1.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
 
 .div-main {
-    width: 315px;
-    height: 315px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: rgb(213, 253, 66);
+    font-size: large;
     align-items: center;
+    opacity: .8; 
+    background-color: rgb(24, 27, 19);
+}
+
+.div-board {
+    background-image: url("../images/NecronNumbers.png") !important;
+    background-color: rgb(24, 27, 19);
+    /* width: 600px; */
+    width: 600px;
+    height: 600px;
+    /*align-items: center;*/
+   
 }
 
 .minesweeper {
-    background-color:rgb(251, 222, 149);
-    width: 315px;
+    /* background-image: url("../images/SaveNecronNumbers.png") !important; */
+    width: 600px;
     height: 600px;
     border-radius: 10px;
+    background-color: rgb(24, 27, 19);
 }
 
 element.style {
-    width: 39px;
+    width: 5px;
     height: 39px;
 }
+
 .face_unpressed {
     background-image: url("../images/face_unpressed.svg");
 }
@@ -43,20 +66,23 @@ element.style {
     margin: 0 auto;
     background-size: 100%;
 }
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-user agent stylesheet
-div {
+
+user agent stylesheet div {
     display: block;
 }
+
 .top-area-center {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
+
 .wrapper {
     border-collapse: separate;
 }
@@ -64,9 +90,23 @@ div {
 .content {
     max-width: 500px;
     margin: auto;
-  }
+}
 
-.size36  {
+.size48 {
+    width: 48px;
+    height: 48px;
+    font-size: 10px;
+    line-height: 47px;
+}
+
+.size100 {
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+    line-height: 47px;
+}
+
+.size36 {
     width: 36px;
     height: 36px;
     font-size: 10px;
@@ -86,6 +126,7 @@ div {
     font-weight: 700;
     text-align: center;
 }
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -95,6 +136,7 @@ div {
 div {
     display: block;
 }
+
 .wrapper {
     border-collapse: separate;
 }
@@ -152,13 +194,26 @@ div {
 }
 
 .face_lost {
+    width: 90px!important;
+    height: 90px!important;
+    font-size: 10px;
+    line-height: 47px;
     background-image: url("../images/face_lost.svg");
 }
 
 .face_unpressed {
+    width: 90px!important;
+    height: 90px!important;
+    font-size: 10px;
+    line-height: 47px;
+
     background-image: url("../images/face_unpressed.svg");
-} 
+}
 
 .face_win {
+    width: 90px!important;
+    height: 90px!important;
+    font-size: 10px;
+    line-height: 47px;
     background-image: url("../images/face_win.svg");
-} 
+}

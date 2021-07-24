@@ -5,62 +5,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="content" onload="initGame()">
-  <table class="minesweeper">
-    <tr>
-        <td colspan="2">
-           <h1>Mine Sweeper</h1>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <div class="face face_unpressed" onclick="faceClicked()" style="width: 39px; height: 39px;"></div>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <p>Chose Your Level:</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <div><label>Beginner</label>
-                <input type="radio" name="boardSize" checked = "checked" class="radio-board-size-16" onclick="chooseLevel(4)">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Medium</label>
-                <input type="radio" name="boardSize" class="radio-board-size-64" onclick="chooseLevel(8)">&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Expert</label>
-                <input type="radio" name="boardSize" class="radio-board-size-144" onclick="chooseLevel(12)">&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div>Bombs Left:<br><span class="bombs-left"></span></div>
-        </td>
-        <td>
-            <div>timer:<br><span class="timer"></span></div>
-        </td>
-        <td>
-          <div>Lives:<br><span class="lives"></span></div>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3">
-            <div class="div-main">
-                <table border="1" cellpadding="10">
-                    <tbody class="board"></tbody>
-                </table>
-            </div>
-        </td>
-    </tr>
-</table>
-<footer>
-    <p>Author: Pavel Kabakov<br>
-  </footer>  
+    <div class="div-main">
+        <table class="minesweeper">
+            <tr>
+                <td colspan="3" class="td-title">
+                    <p><img src="../images/SearchForNecronsTombs.png" alt="Search for Necrons Tombs"
+                            style="height:100%; width: 100%;"></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="face face_unpressed" onclick="faceClicked()" style="width: 85px; height: 85px;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    Chose Your Level:
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <fieldset><label>Beginner</label>
+                        <input type="radio" name="boardSize" checked="checked" class="radio-board-size-16"
+                            onclick="chooseLevel(4)">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>Medium</label>
+                        <input type="radio" name="boardSize" class="radio-board-size-64"
+                            onclick="chooseLevel(8)">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>Expert</label>
+                        <input type="radio" name="boardSize" class="radio-board-size-144"
+                            onclick="chooseLevel(12)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    </fieldset>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 33.33%;">
+                    <div>Bombs Left:<br><span class="bombs-left"></span></div>
+                </td>
+                <td style="width: 33.33%;">
+                    <div>Timer:<br><span class="timer"></span></div>
+                </td>
+                <td style="width: 33.33%;">
+                    <div>Lives:<br><span class="lives"></span></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="div-board parent center">
+                        <div class="div-board-sub child center">
+                            <table border="1" cellpadding="10">
+                                <tbody class="board"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <footer>
+            <p>Author: Pavel Kabakov<br>
+        </footer>
+
+    </div>
     <script src="js/main.js"></script>
     <script src="js/util.js"></script>
 </body>

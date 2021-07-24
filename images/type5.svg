@@ -1,22 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="25mm" height="25mm" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 1.13927 1.13927"
- xmlns:xlink="http://www.w3.org/1999/xlink">
- <defs>
-  <style type="text/css">
+
+<svg
+   xml:space="preserve"
+   width="25mm"
+   height="25mm"
+   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+   viewBox="0 0 1.28983 1.28983"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="type5_.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+   id="namedview16"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:document-units="mm"
+   showgrid="false"
+   inkscape:zoom="2.3098125"
+   inkscape:cx="152.60979"
+   inkscape:cy="31.820765"
+   inkscape:window-width="2560"
+   inkscape:window-height="1361"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_x0020_1" />
+ <defs
+   id="defs4"><rect
+   x="19.373867"
+   y="22.620884"
+   width="2.1646779"
+   height="42.860622"
+   id="rect15261" />
+  <style
+   type="text/css"
+   id="style2">
    <![CDATA[
-    .fil2 {fill:maroon}
+    .fil2 {fill:teal}
     .fil0 {fill:gray}
     .fil1 {fill:#c6c6c6}
    ]]>
   </style>
  </defs>
- <g id="Layer_x0020_1">
-  <metadata id="CorelCorpID_0Corel-Layer"/>
-  <rect class="fil0" width="1.13927" height="1.13927"/>
-  <rect class="fil1" x="0.0695474" y="0.0695474" width="1.06972" height="1.06972"/>
-  <path class="fil2" d="M0.960865 0.719312l0 0.158801c0,0.0611879 -0.0585904,0.0661414 -0.136649,0.0661414l-0.511432 0c-0.075087,0 -0.0643733,-0.0367301 -0.0643733,-0.0816948l0 -0.0581073 0.45847 0c0.0258159,0 0.0388445,-0.0126322 0.0388445,-0.0280625l0 -0.0902028c0,-0.0154303 -0.0130424,-0.0260665 -0.0388445,-0.0260346l-0.45877 0.000674448 -6.37991e-005 -0.426187 0.710713 -0.00157675 0.000159498 0.037687c0.0028664,0.0860377 -0.0201149,0.106704 -0.086261,0.106936l-0.414033 5.01279e-005 -0.000360009 0.143133 0.367323 -0.00141269c0.0604178,-0.000232411 0.134069,-0.00304413 0.135104,0.0659455 0.000423808,0.0284817 0.000173169,0.107438 0.000173169,0.13391z"/>
- </g>
+ <g
+   id="Layer_x0020_1"
+   inkscape:label="Layer 1">
+  <metadata
+   id="CorelCorpID_0Corel-Layer" />
+  <rect
+   class="fil0"
+   width="1.28983"
+   height="1.28983"
+   id="rect7" />
+  <rect
+   class="fil1"
+   x="0.0787382"
+   y="0.0787382"
+   width="1.21109"
+   height="1.21109"
+   id="rect9"
+   style="fill:#4d4d4d" />
+  
+ <text
+   xml:space="preserve"
+   transform="scale(0.0136507)"
+   id="text15259"
+   style="fill:black;fill-opacity:1;line-height:1.25;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;white-space:pre;shape-inside:url(#rect15261)" /><text
+   xml:space="preserve"
+   style="font-size:0.873645px;line-height:1.25;font-family:Necron;-inkscape-font-specification:Necron;fill:#ccff00;stroke-width:0.0136507"
+   x="0.40836117"
+   y="0.98861682"
+   id="text7167"><tspan
+     sodipodi:role="line"
+     id="tspan7165"
+     style="fill:#ccff00;stroke-width:0.0136507"
+     x="0.40836117"
+     y="0.98861682">5</tspan></text></g>
 </svg>
