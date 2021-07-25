@@ -142,39 +142,48 @@ div {
 }
 
 .hd_type0 {
-    background-image: url("../images/type0.svg");
+    /* background-image: url("../images/type0.svg"); */
+    background-image: url("../images/dd0.png");
 }
 
 .hd_type1 {
-    background-image: url("../images/type1.svg");
+    /* background-image: url("../images/type1.svg"); */
+    background-image: url("../images/dd1.png");
 }
 
 .hd_type2 {
-    background-image: url("../images/type2.svg");
+    /* background-image: url("../images/type2.svg"); */
+    background-image: url("../images/dd2.png");
 }
 
 .hd_type3 {
-    background-image: url("../images/type3.svg");
+    /* background-image: url("../images/type3.svg"); */
+    background-image: url("../images/dd3.png");
 }
 
 .hd_type4 {
-    background-image: url("../images/type4.svg");
+    /* background-image: url("../images/type4.svg"); */
+    background-image: url("../images/dd4.png");
 }
 
 .hd_type5 {
-    background-image: url("../images/type5.svg");
+    /* background-image: url("../images/type5.svg"); */
+    background-image: url("../images/dd5.png");
 }
 
 .hd_type6 {
-    background-image: url("../images/type6.svg");
+    /* background-image: url("../images/type6.svg"); */
+    background-image: url("../images/dd6.png");
 }
 
 .hd_type7 {
-    background-image: url("../images/type7.svg");
+    /* background-image: url("../images/type7.svg"); */
+    background-image: url("../images/dd7.png");
 }
 
 .hd_type8 {
-    background-image: url("../images/type8.svg");
+    /* background-image: url("../images/type8.svg"); */
+    background-image: url("../images/dd8.png");
 }
 
 .hd_flag {
